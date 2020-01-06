@@ -116,12 +116,6 @@ function wmspoon:bindHotkeys()
     --     print("*** hyperDown: " .. hs.inspect.inspect(hyperDown))
     -- end):start()
 
-    -- hs.hotkey.bind(hyper, "space", function ()
-    --     print("*** hyper pressed")
-    -- end, function ()
-    --     print("*** hyper released")
-    -- end)
-
     hs.hotkey.bind(hyper, "q", function ()
         self:_sizeWindow("top-left")
     end)
