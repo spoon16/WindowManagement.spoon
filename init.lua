@@ -39,7 +39,55 @@ function wmspoon:_sizeWindow(target)
     print("current cell " .. hs.inspect.inspect(currentWinCell))
 
     local positionCells = nil
-    if screen:id() == -1 then
+    if screen:id() == 724072339 then
+        if target == "left" then
+            positionCells = {
+                hs.geometry.rect(0, 0, 4, 12),
+                hs.geometry.rect(0, 0, 6, 12),
+                hs.geometry.rect(0, 0, 3, 12)
+            }
+        elseif target == "center" then
+            positionCells = {
+                hs.geometry.rect(4, 0, 4, 12),
+                hs.geometry.rect(3, 0, 6, 12)
+            }
+        elseif target == "right" then
+            positionCells = {
+                hs.geometry.rect(8, 0, 4, 12),
+                hs.geometry.rect(6, 0, 6, 12),
+                hs.geometry.rect(9, 0, 3, 12)
+            }
+        elseif target == "top-left" then
+            positionCells = {
+                hs.geometry.rect(0, 0, 4, 6),
+                hs.geometry.rect(0, 0, 3, 6)
+            }
+        elseif target == "top" then
+            positionCells = {
+                hs.geometry.rect(4, 0, 4, 6)
+            }
+        elseif target == "top-right" then
+            positionCells = {
+                hs.geometry.rect(8, 0, 4, 6),
+                hs.geometry.rect(9, 0, 3, 6)
+            }
+        elseif target == "bottom-left" then
+            positionCells = {
+                hs.geometry.rect(0, 6, 4, 6),
+                hs.geometry.rect(0, 6, 3, 6)
+            }
+        elseif target == "bottom" then
+            positionCells = {
+                hs.geometry.rect(4, 6, 4, 6)
+            }
+        elseif target == "bottom-right" then
+            positionCells = {
+                hs.geometry.rect(8, 6, 4, 6),
+                hs.geometry.rect(9, 6, 3, 6)
+            }
+        else
+            positionCells = { hs.geometry.rect(0, 0, 12, 12) }
+        end
     else
         if target == "center" then
             positionCells = {
@@ -164,9 +212,6 @@ end
 
 function wmspoon:init()
     print("wmspoon:init")
-
-    print("hs.window.animationDuration: " .. hs.inspect.inspect(gridDimensions))
-    hs.window.animationDuration = 0.2
 
     local gridDimensions = hs.geometry.size(12, 12)
     print("hs.grid.setGrid: " .. hs.inspect.inspect(gridDimensions))
